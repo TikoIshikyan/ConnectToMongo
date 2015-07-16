@@ -1,15 +1,32 @@
 
 var creCon=require('./createConect');
 
-var mySchema=creCon.Schema;
+var mySchema=creCon.mong.Schema;
 
 var nameSchema=new mySchema({
     name: String,
     sname: String
 });
 
-var myModel = creCon.model('names',nameSchema);
+nameSchema.methods.anun= function(){
+    console.log(this.get('name'));
+}
 
+var myModel = creCon.mong.model('names',nameSchema);
+
+console.log("for new commit");
+
+var gago=new myModel({name:'Gago',sname:'www'});
+
+gago.save(function(err,gago,att){
+    gago.anun();
+
+});
+
+
+
+
+var x=creCon.x;
 /*
 myModel.find({'name':'mek@'},'name', function (err, users) {
     for (var j = 0; j < users.length; j++) {

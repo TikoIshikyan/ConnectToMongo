@@ -3,7 +3,10 @@ var mongoose = require('mongoose');
 var dbUrl='mongodb://localhost/test';
 mongoose.connect(dbUrl);
 
-module.exports=mongoose;
+module.exports.mong=mongoose;
+var x=10;
+module.exports.x=x;
+
 
 
 
